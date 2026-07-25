@@ -1,0 +1,154 @@
+{
+  "experiment": "capacity_motivation",
+  "config": "canonical Figure 2 shape: M=256 K=2048 N=2048",
+  "source_of_truth": "cache cells: best KC per (L1 capacity, load ports, VL) by total-GFLOPS over results/reference/results_fig2_n2048_headh0 logs (grid: run_fig2_cache_n2048_headh0.sh); CacheFlex cells: the pinned v3_fused points of run_spm_fused_n2048_headh0.sh (VL4 kc1024 / VL8 kc512 / VL16 kc320, 64KB L1). The paper reports VL4/8/16. gem5_extra fields are extracted from each winner cell's logged command line.",
+  "cells": [
+    {
+      "name": "fused_vl4_l164k4w_ld2st1_kc1024_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 1024 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=4"
+    },
+    {
+      "name": "fused_vl4_l164k4w_ld4st2_kc1024_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 1024 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=4"
+    },
+    {
+      "name": "fused_vl4_l1256k4w_ld2st1_kc1024_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 1024 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=256kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=4"
+    },
+    {
+      "name": "fused_vl4_l1256k4w_ld4st2_kc1024_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 1024 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=256kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=4"
+    },
+    {
+      "name": "fused_vl4_l1512k4w_ld2st1_kc1024_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 1024 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=512kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=4"
+    },
+    {
+      "name": "fused_vl4_l1512k4w_ld4st2_kc1024_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 1024 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=512kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=4"
+    },
+    {
+      "name": "fused_vl8_l164k4w_ld2st1_kc768_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 768 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=8"
+    },
+    {
+      "name": "fused_vl8_l164k4w_ld4st2_kc768_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 768 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=8"
+    },
+    {
+      "name": "fused_vl8_l1256k4w_ld2st1_kc768_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 768 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=256kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=8"
+    },
+    {
+      "name": "fused_vl8_l1256k4w_ld4st2_kc768_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 768 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=256kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=8"
+    },
+    {
+      "name": "fused_vl8_l1512k4w_ld2st1_kc768_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 768 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=512kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=8"
+    },
+    {
+      "name": "fused_vl8_l1512k4w_ld4st2_kc768_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 768 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=512kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=8"
+    },
+    {
+      "name": "fused_vl16_l164k4w_ld2st1_kc512_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=16"
+    },
+    {
+      "name": "fused_vl16_l164k4w_ld4st2_kc512_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=16"
+    },
+    {
+      "name": "fused_vl16_l1256k4w_ld2st1_kc512_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=256kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=16"
+    },
+    {
+      "name": "fused_vl16_l1256k4w_ld4st2_kc512_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=256kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=16"
+    },
+    {
+      "name": "fused_vl16_l1512k4w_ld2st1_kc512_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=512kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=16"
+    },
+    {
+      "name": "fused_vl16_l1512k4w_ld4st2_kc512_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=512kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=4 -P system.cpu[0].cacheStorePorts=2 -P system.cpu[0].fuPool.FUList[7].count=4 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=16"
+    },
+    {
+      "name": "v3fused_vl4_kc1024_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl4",
+      "args": "256 2048 2048 1 1024 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=4"
+    },
+    {
+      "name": "v3fused_vl8_kc512_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl8",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=8"
+    },
+    {
+      "name": "v3fused_vl16_kc320_mc256",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl16",
+      "args": "256 2048 2048 1 320 256",
+      "env": "",
+      "gem5_extra": "--l1d_size=64kB --l1d_assoc=4 -P system.cpu[0].cacheLoadPorts=2 -P system.cpu[0].cacheStorePorts=1 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1 -P system.cpu[0].fuPool.FUList[7].count=2 -P system.cpu[0].fuPool.FUList[9].count=2 -P system.cpu[0].isa[0].sve_vl_se=16"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Reproducible Python 3.11--3.12 environment for gem5 build and rendering.
+# Install with: python3 -m pip install -r requirements.txt
+
+# gem5 build
+scons==4.10.1
+
+# Plotting and analysis. Matplotlib 3.11.0 is the renderer used for the
+# supplied paper figures; NumPy 2.4.4 supports both declared Python versions.
+numpy==2.4.4
+matplotlib==3.11.0
+
+# Pin Matplotlib's runtime dependencies so font embedding and layout do not
+# drift after the artifact is published.
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.63.0
+kiwisolver==1.5.0
+packaging==26.0
+pillow==12.3.0
+pyparsing==3.3.2
+python-dateutil==2.9.0
+six==1.17.0

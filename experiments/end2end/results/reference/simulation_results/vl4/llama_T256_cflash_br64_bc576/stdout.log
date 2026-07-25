@@ -1,0 +1,66 @@
+warn: The se.py script is deprecated. It will be removed in future releases of  gem5.
+warn: Base 10 memory/cache size 16GB will be cast to base 2 size 16GiB.
+warn: Base 10 memory/cache size 512kB will be cast to base 2 size 512KiB.
+warn: Base 10 memory/cache size 4MB will be cast to base 2 size 4MiB.
+warn: Base 10 memory/cache size 64kB will be cast to base 2 size 64KiB.
+warn: Base 10 memory/cache size 64kB will be cast to base 2 size 64KiB.
+warn: Base 10 memory/cache size 512kB will be cast to base 2 size 512KiB.
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (16384 Mbytes) does not match the address range assigned (8192 Mbytes)
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (16384 Mbytes) does not match the address range assigned (8192 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 24.1.0.3
+gem5 compiled Jul 19 2026 22:13:53
+gem5 started Jul 23 2026 13:38:48
+gem5 executing on anonymous-host, pid 1834831
+command line: /artifact/cacheflex/gem5/build/ARM/gem5.opt --outdir=/artifact/cacheflex/experiments/end2end/results/reference/simulation_results/vl4/llama_T256_cflash_br64_bc576 /artifact/cacheflex/gem5/configs/deprecated/example/se.py --cpu-type=DerivO3CPU --sys-clock=1.5GHz --cpu-clock=2.5GHz --caches --l2cache --l3cache --l1d_size=64kB --l1i_size=64kB --l1d_assoc=4 --l1i_assoc=4 --l2_size=512kB --l2_assoc=8 --l3_size=4MB --l3_assoc=16 --cacheline_size=64 --mem-size=16GB --mem-channels=2 --mem-type=DDR4_2400_8x8 --l1i-hwp-type=StridePrefetcher --l1d-hwp-type=StridePrefetcher --l2-hwp-type=AMPMPrefetcher --l3-hwp-type=BOPPrefetcher -P 'system.cpu[0].icache.prefetcher.degree=4' -P 'system.cpu[0].dcache.prefetcher.degree=4' -P 'system.cpu[0].icache.tag_latency=2' -P 'system.cpu[0].icache.data_latency=2' -P 'system.cpu[0].fetchWidth=5' -P 'system.cpu[0].decodeWidth=5' -P 'system.cpu[0].commitWidth=5' -P 'system.cpu[0].renameWidth=5' -P 'system.cpu[0].dispatchWidth=8' -P 'system.cpu[0].issueWidth=8' -P 'system.cpu[0].wbWidth=8' -P 'system.cpu[0].numROBEntries=128' -P 'system.cpu[0].numIQEntries=80' -P 'system.cpu[0].LQEntries=32' -P 'system.cpu[0].SQEntries=48' -P 'system.cpu[0].numPhysIntRegs=128' -P 'system.cpu[0].numPhysFloatRegs=192' -P 'system.cpu[0].numPhysVecRegs=192' -P 'system.cpu[0].numPhysVecPredRegs=64' -P 'system.cpu[0].cacheLoadPorts=2' -P 'system.cpu[0].cacheStorePorts=1' -P 'system.cpu[0].spmLoadPorts=2' -P 'system.cpu[0].spmStorePorts=1' -P 'system.cpu[0].fuPool.FUList[0].count=2' -P 'system.cpu[0].fuPool.FUList[2].count=2' -P 'system.cpu[0].fuPool.FUList[5].count=2' -P 'system.cpu[0].fuPool.FUList[7].count=2' -P 'system.cpu[0].fuPool.FUList[9].count=2' -P system.tol2bus.frontend_latency=1 -P system.tol2bus.forward_latency=1 -P system.tol2bus.header_latency=0 -P system.tol2bus.response_latency=1 -P system.tol2bus.width=64 -P system.l2.tag_latency=8 -P system.l2.data_latency=8 -P system.l2.response_latency=8 -P system.tol3bus.width=32 -P system.tol3bus.frontend_latency=10 -P system.tol3bus.forward_latency=10 -P system.tol3bus.response_latency=10 -P system.l3.tag_latency=35 -P system.l3.data_latency=35 -P system.l3.response_latency=35 -P 'system.cpu[0].isa[0].sve_vl_se=4' -c bin/cache_flash_attn -o '256 32 8 64 1 64 576'
+
+info: Standard input is not a terminal, disabling listeners.
+**** REAL SIMULATION ****
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+=== cache_flash_attn (8x64 PV, GQA) ===
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+  T=256  H_q=32  H_kv=8  group_ratio=4  d=64  Br=64  Bc=576  NT=96  n_iter=1
+  K_T_knm: 36.0KB (L2)  V: read row-major directly (NO prepack!)
+  Per-i-block scratch (Br=64): qk_Ap=8.0 S=12.0 P=12.0 pv_Ap=12.0 PV=12.0 O=16.0KB
+  GFLOP/head=0.0168
+
+  K_T_knm: 36.0KB to pre-pack
+
+--- [COLD] ---
+  COLD: 3.56 ms  ->  150.91 GFLOPS
+  Breakdown:
+    K trans+prepack:    75.0 us (  2.2%)
+    pack_A(Q):          25.8 us (  0.8%)
+    QK GEMM:           985.1 us ( 28.9%)
+    softmax:          1129.3 us ( 33.2%)
+    PV pack_A(P):      112.9 us (  3.3%)
+    PV kernel:         944.7 us ( 27.8%)
+    finalize:          130.7 us (  3.8%)
+    sum:              3403.6 us
+
+--- [WARM] 1 iterations ---
+  WARM avg: 3.48 ms  ->  154.48 GFLOPS
+  Breakdown:
+    K trans+prepack:    67.8 us (  2.0%)
+    pack_A(Q):          24.4 us (  0.7%)
+    QK GEMM:           981.3 us ( 29.5%)
+    softmax:          1127.8 us ( 33.9%)
+    PV pack_A(P):      112.1 us (  3.4%)
+    PV kernel:         944.4 us ( 28.4%)
+    finalize:           66.9 us (  2.0%)
+    sum:              3324.7 us
+  CHECKSUM: 83.56854069
+Exiting @ tick 12264931600 because exiting with last active thread context

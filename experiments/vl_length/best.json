@@ -1,0 +1,301 @@
+{
+  "experiment": "vl_length",
+  "config": "headh0",
+  "source_of_truth": "42 pinned canonical cells: 7 workloads x VL {4,8,16} x versions {v1,v3}, each at its selected KC/MC; shipped reference: results/reference/results_headh0",
+  "cells": [
+    {
+      "name": "W1_v1_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "128 4096 11008 1 1024 128",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W1_v1_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "128 4096 11008 1 512 128",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W1_v1_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "128 4096 11008 1 64 128",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W1_v3_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl4",
+      "args": "128 4096 11008 1 1024 128",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W1_v3_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl8",
+      "args": "128 4096 11008 1 512 128",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W1_v3_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl16",
+      "args": "128 4096 11008 1 320 128",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W2_v1_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 4096 4096 1 256 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W2_v1_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 4096 4096 1 512 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W2_v1_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 4096 4096 1 64 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W2_v3_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl4",
+      "args": "256 4096 4096 1 512 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W2_v3_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl8",
+      "args": "256 4096 4096 1 512 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W2_v3_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl16",
+      "args": "256 4096 4096 1 320 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W3_v1_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 384 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W3_v1_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 384 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W3_v1_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "256 2048 2048 1 64 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W3_v3_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl4",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W3_v3_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl8",
+      "args": "256 2048 2048 1 512 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W3_v3_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl16",
+      "args": "256 2048 2048 1 320 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W4_v1_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "512 768 768 1 768 784",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W4_v1_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "512 768 768 1 384 512",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W4_v1_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "512 768 768 1 64 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W4_v3_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl4",
+      "args": "512 768 768 1 768 784",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W4_v3_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl8",
+      "args": "512 768 768 1 384 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W4_v3_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl16",
+      "args": "512 768 768 1 256 256",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W5_v1_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "2048 2048 2048 1 1024 2048",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W5_v1_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "2048 2048 2048 1 512 2048",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W5_v1_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "2048 2048 2048 1 64 512",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W5_v3_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl4",
+      "args": "2048 2048 2048 1 1024 1024",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W5_v3_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl8",
+      "args": "2048 2048 2048 1 512 1024",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W5_v3_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl16",
+      "args": "2048 2048 2048 1 320 512",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W6_v1_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "2048 64 2048 1 64 1024",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W6_v1_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "2048 64 2048 1 64 1024",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W6_v1_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "2048 64 2048 1 64 512",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W6_v3_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl4",
+      "args": "2048 64 2048 1 64 1024",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W6_v3_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl8",
+      "args": "2048 64 2048 1 64 1024",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W6_v3_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl16",
+      "args": "2048 64 2048 1 64 512",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W7_v1_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "784 256 1024 1 256 784",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W7_v1_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "784 256 1024 1 256 784",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W7_v1_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v1_fused",
+      "args": "784 256 1024 1 64 784",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W7_v3_vl4",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl4",
+      "args": "784 256 1024 1 256 784",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=4 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W7_v3_vl8",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl8",
+      "args": "784 256 1024 1 256 784",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=8 -P system.cpu[0].spmLoadPorts=2 -P system.cpu[0].spmStorePorts=1"
+    },
+    {
+      "name": "W7_v3_vl16",
+      "binary": "kernels/gemm/cacheflex/bin/v3_fused_vl16",
+      "args": "784 256 1024 1 256 784",
+      "env": "",
+      "gem5_extra": "-P system.cpu[0].isa[0].sve_vl_se=16 -P system.cpu[0].spmLoadPorts=1 -P system.cpu[0].spmStorePorts=1"
+    }
+  ]
+}

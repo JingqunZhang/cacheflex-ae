@@ -1,0 +1,51 @@
+# Downloaded toolchain & QEMU (fetch via scripts/setup_tools.sh)
+tools/
+.venv/
+
+# gem5 build artifacts
+gem5/build/
+gem5/m5out/
+gem5/gem5out_*/
+gem5/util/m5/build/
+**/*.pyc
+**/__pycache__/
+
+# Built kernel binaries (rebuild via each dir's build.sh / build_spm.sh)
+**/bin/
+**/bin_gem5/
+**/bin_qemu/
+**/bin_gem5_spm/
+**/bin_vl16/
+**/*.o
+**/*.a
+
+# Generated assembly from 3-step SPM build
+**/*_enc.s
+
+# Experiment outputs. results/reference/ is SHIPPED: it holds the measured
+# reference cells that render_reference.sh renders and that run_all.sh compares
+# fresh runs against (5% limit). Only regenerable render/sweep output is ignored.
+**/out_*/
+**/results/generated/
+**/results_*/
+**/results_rerun/
+**/gem5_out_sweep/
+**/gem5_bench_results/
+**/m5out/
+# Re-include the shipped reference tree in full: some cells live under
+# results/reference/results_*/ subdirs that the results_*/ rule above drops.
+!**/results/reference/
+!**/results/reference/**
+
+# Editor / misc
+.vscode/
+.idea/
+*.swp
+*.log
+# ...but ship the per-cell reference logs (stdout.log under results/reference/)
+!**/results/reference/**/*.log
+# ...and the Table 4 companion reference pool (rendered by plot_table4_flash.py)
+!experiments/end2end/table4/reference/**/*.log
+
+# Local backups
+backups/
