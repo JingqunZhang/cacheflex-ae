@@ -1,0 +1,979 @@
+{
+  "experiment": "end2end",
+  "config": "canonical",
+  "source_of_truth": "Fixed configurations for Figure 9. The default run executes exactly these cells; no tuning sweep is required.",
+  "cells": [
+    {
+      "name": "llama_T256_cache_K2048_N2048_mc256_kc512",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 0 256 2048 2048 256 512 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_spm_K2048_N2048_mc256_kc512",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 0 256 2048 2048 256 512 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_cache_K2048_N512_mc256_kc256",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 0 256 2048 512 256 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_spm_K2048_N512_mc256_kc512",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 0 256 2048 512 256 512 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_ffn_seq_mc256_kc512",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_ffn_seq",
+      "args": "0 256 256 512 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_ffn_seq_spm_mc256_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_ffn_seq_spm",
+      "args": "0 256 256 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_cache_K8192_N2048_mc256_kc512",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 0 256 8192 2048 256 512 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_spm_K8192_N2048_mc256_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 0 256 8192 2048 256 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_unfused",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/cache_unfused_attn",
+      "args": "256 32 8 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_spm_unfused",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/spm_unfused_attn",
+      "args": "256 32 8 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_cflash_br64_bc576",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/cache_flash_attn",
+      "args": "256 32 8 64 1 64 576 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_sflash_br64_bc384",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/spm_flash_attn",
+      "args": "256 32 8 64 1 64 384 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_rmsnorm",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "rmsnorm 0 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_residual",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "residual 0 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_rope",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "rope 0 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_cache_K768_N768_mc256_kc384",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 1 256 768 768 256 384 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_spm_K768_N768_mc256_kc768",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 1 256 768 768 256 768 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_ffn_seq_mc256_kc384",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_ffn_seq",
+      "args": "1 256 256 384 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_ffn_seq_spm_mc256_kc768",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_ffn_seq_spm",
+      "args": "1 256 256 768 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_cache_K3072_N768_mc256_kc384",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 1 256 3072 768 256 384 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_spm_K3072_N768_mc256_kc512",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 1 256 3072 768 256 512 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_unfused",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/cache_unfused_attn",
+      "args": "256 12 12 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_spm_unfused",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/spm_unfused_attn",
+      "args": "256 12 12 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_cflash_br40_bc576",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/cache_flash_attn",
+      "args": "256 12 12 64 1 40 576 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_sflash_br32_bc576",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/spm_flash_attn",
+      "args": "256 12 12 64 1 32 576 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_layernorm",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_layernorm",
+      "args": "1 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_residual",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "residual 1 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_cache_K2048_N2048_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 0 4096 2048 2048 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_spm_K2048_N2048_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 0 4096 2048 2048 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_cache_K2048_N512_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 0 4096 2048 512 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_spm_K2048_N512_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 0 4096 2048 512 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_ffn_seq_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_ffn_seq",
+      "args": "0 4096 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_ffn_seq_spm_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_ffn_seq_spm",
+      "args": "0 4096 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_cache_K8192_N2048_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 0 4096 8192 2048 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_spm_K8192_N2048_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 0 4096 8192 2048 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_unfused",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/cache_unfused_attn",
+      "args": "4096 32 8 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_spm_unfused",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/spm_unfused_attn",
+      "args": "4096 32 8 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_cflash_br64_bc576",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/cache_flash_attn",
+      "args": "4096 32 8 64 1 64 576 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_sflash_br64_bc576",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/spm_flash_attn",
+      "args": "4096 32 8 64 1 64 576 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_rmsnorm",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "rmsnorm 0 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_residual",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "residual 0 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_rope",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "rope 0 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_cache_K768_N768_mc1024_kc768",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 1 4096 768 768 1024 768 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_spm_K768_N768_mc1024_kc768",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 1 4096 768 768 1024 768 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_ffn_seq_mc1024_kc768",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_ffn_seq",
+      "args": "1 4096 1024 768 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_ffn_seq_spm_mc1024_kc768",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_ffn_seq_spm",
+      "args": "1 4096 1024 768 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_cache_K3072_N768_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "gemm 1 4096 3072 768 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_spm_K3072_N768_mc1024_kc1024",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel_spm",
+      "args": "gemm 1 4096 3072 768 1024 1024 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_unfused",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/cache_unfused_attn",
+      "args": "4096 12 12 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_spm_unfused",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/spm_unfused_attn",
+      "args": "4096 12 12 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_cflash_br64_bc576",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/cache_flash_attn",
+      "args": "4096 12 12 64 1 64 576 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_sflash_br64_bc576",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/spm_flash_attn",
+      "args": "4096 12 12 64 1 64 576 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_layernorm",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_layernorm",
+      "args": "1 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_residual",
+      "block": "vl4",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/bench_kernel",
+      "args": "residual 1 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_cache_K2048_N2048_mc256_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 0 256 2048 2048 256 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_spm_K2048_N2048_mc256_kc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 0 256 2048 2048 256 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_cache_K2048_N512_mc256_kc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 0 256 2048 512 256 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_spm_K2048_N512_mc256_kc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 0 256 2048 512 256 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_ffn_seq_mc256_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_ffn_seq",
+      "args": "0 256 256 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_ffn_seq_spm_mc256_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_ffn_seq_spm",
+      "args": "0 256 256 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_cache_K8192_N2048_mc256_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 0 256 8192 2048 256 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_spm_K8192_N2048_mc256_kc320",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 0 256 8192 2048 256 320 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_unfused",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/cache_unfused_attn",
+      "args": "256 32 8 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_spm_unfused",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/spm_unfused_attn",
+      "args": "256 32 8 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_cflash_br64_bc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/cache_flash_attn",
+      "args": "256 32 8 64 1 64 256 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_sflash_br32_bc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/spm_flash_attn",
+      "args": "256 32 8 64 1 32 256 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_rmsnorm",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "rmsnorm 0 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_residual",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "residual 0 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T256_rope",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "rope 0 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_cache_K768_N768_mc256_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 1 256 768 768 256 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_spm_K768_N768_mc256_kc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 1 256 768 768 256 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_ffn_seq_mc256_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_ffn_seq",
+      "args": "1 256 256 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_ffn_seq_spm_mc256_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_ffn_seq_spm",
+      "args": "1 256 256 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_cache_K3072_N768_mc256_kc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 1 256 3072 768 256 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_spm_K3072_N768_mc256_kc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 1 256 3072 768 256 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_unfused",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/cache_unfused_attn",
+      "args": "256 12 12 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_spm_unfused",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/spm_unfused_attn",
+      "args": "256 12 12 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_cflash_br64_bc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/cache_flash_attn",
+      "args": "256 12 12 64 1 64 256 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_sflash_br32_bc256",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/spm_flash_attn",
+      "args": "256 12 12 64 1 32 256 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_layernorm",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_layernorm",
+      "args": "1 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T256_residual",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "residual 1 256 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_cache_K2048_N2048_mc512_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 0 4096 2048 2048 512 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_spm_K2048_N2048_mc512_kc320",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 0 4096 2048 2048 512 320 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_cache_K2048_N512_mc1024_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 0 4096 2048 512 1024 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_spm_K2048_N512_mc512_kc320",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 0 4096 2048 512 512 320 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_ffn_seq_mc1024_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_ffn_seq",
+      "args": "0 4096 1024 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_ffn_seq_spm_mc256_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_ffn_seq_spm",
+      "args": "0 4096 256 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_cache_K8192_N2048_mc512_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 0 4096 8192 2048 512 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_spm_K8192_N2048_mc512_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 0 4096 8192 2048 512 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_unfused",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/cache_unfused_attn",
+      "args": "4096 32 8 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_spm_unfused",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/spm_unfused_attn",
+      "args": "4096 32 8 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_cflash_br64_bc384",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/cache_flash_attn",
+      "args": "4096 32 8 64 1 64 384 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_sflash_br32_bc384",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/spm_flash_attn",
+      "args": "4096 32 8 64 1 32 384 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_rmsnorm",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "rmsnorm 0 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_residual",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "residual 0 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T4096_rope",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "rope 0 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_cache_K768_N768_mc1024_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 1 4096 768 768 1024 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_spm_K768_N768_mc512_kc320",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 1 4096 768 768 512 320 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_ffn_seq_mc1024_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_ffn_seq",
+      "args": "1 4096 1024 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_ffn_seq_spm_mc512_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_ffn_seq_spm",
+      "args": "1 4096 512 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_cache_K3072_N768_mc1024_kc341",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "gemm 1 4096 3072 768 1024 341 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_spm_K3072_N768_mc512_kc320",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel_spm",
+      "args": "gemm 1 4096 3072 768 512 320 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_unfused",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/cache_unfused_attn",
+      "args": "4096 12 12 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_spm_unfused",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/spm_unfused_attn",
+      "args": "4096 12 12 64 1 128 256 128 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_cflash_br64_bc384",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/cache_flash_attn",
+      "args": "4096 12 12 64 1 64 384 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_sflash_br32_bc384",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/spm_flash_attn",
+      "args": "4096 12 12 64 1 32 384 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_layernorm",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_layernorm",
+      "args": "1 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "bert_T4096_residual",
+      "block": "vl16",
+      "figure": "Figure 9",
+      "binary": "experiments/end2end/bin/vl16/bench_kernel",
+      "args": "residual 1 4096 1",
+      "env": "",
+      "gem5_extra": ""
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+THIRD-PARTY NOTICES
+===================
+
+This artifact bundles and/or derives from third-party software. The original
+copyright and license notices are reproduced below.
+
+-------------------------------------------------------------------------------
+1. Arm Compute Library
+   https://github.com/ARM-software/ComputeLibrary
+-------------------------------------------------------------------------------
+
+CacheFlex's SVE FP16 GEMM microkernels (in `kernels/`) are derived from the Arm
+Compute Library's arm_gemm microkernel `sve_interleaved_fp16_mla_8x3VL`. The Arm
+Compute Library is distributed under the MIT License. The affected source files
+retain a per-file notice; the upstream copyright and permission notice follows:
+
+    Copyright (c) 2017-2024 Arm Limited
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to
+    deal in the Software without restriction, including without limitation the
+    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+    sell copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+    IN THE SOFTWARE.
+
+-------------------------------------------------------------------------------
+2. gem5 simulator
+   https://www.gem5.org/
+-------------------------------------------------------------------------------
+
+The bundled gem5 simulator (`gem5/`) and its third-party components (`gem5/ext/`)
+are distributed under their own licenses; see `gem5/LICENSE`, `gem5/COPYING`, and
+the license headers within the respective subdirectories.

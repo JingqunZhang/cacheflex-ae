@@ -1,0 +1,87 @@
+{
+  "experiment": "end2end",
+  "output": "Table 4",
+  "config": "canonical",
+  "cells": [
+    {
+      "name": "llama_T1024_cflash_br64_bc576",
+      "block": "vl4",
+      "pool": "table4/vl4",
+      "figure": "Table 4",
+      "binary": "experiments/end2end/bin/cache_flash_attn",
+      "args": "1024 32 8 64 1 64 576 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T1024_sflash_br64_bc576",
+      "block": "vl4",
+      "pool": "table4/vl4",
+      "figure": "Table 4",
+      "binary": "experiments/end2end/bin/spm_flash_attn",
+      "args": "1024 32 8 64 1 64 576 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T2048_cflash_br64_bc576",
+      "block": "vl4",
+      "pool": "table4/vl4",
+      "figure": "Table 4",
+      "binary": "experiments/end2end/bin/cache_flash_attn",
+      "args": "2048 32 8 64 1 64 576 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T2048_sflash_br64_bc576",
+      "block": "vl4",
+      "pool": "table4/vl4",
+      "figure": "Table 4",
+      "binary": "experiments/end2end/bin/spm_flash_attn",
+      "args": "2048 32 8 64 1 64 576 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T1024_cflash_br64_bc384",
+      "block": "vl16",
+      "pool": "table4/vl16",
+      "figure": "Table 4",
+      "binary": "experiments/end2end/bin/vl16/cache_flash_attn",
+      "args": "1024 32 8 64 1 64 384 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T1024_sflash_br64_bc384",
+      "block": "vl16",
+      "pool": "table4/vl16",
+      "figure": "Table 4",
+      "binary": "experiments/end2end/bin/vl16/spm_flash_attn",
+      "args": "1024 32 8 64 1 64 384 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T2048_cflash_br64_bc384",
+      "block": "vl16",
+      "pool": "table4/vl16",
+      "figure": "Table 4",
+      "binary": "experiments/end2end/bin/vl16/cache_flash_attn",
+      "args": "2048 32 8 64 1 64 384 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    },
+    {
+      "name": "llama_T2048_sflash_br64_bc384",
+      "block": "vl16",
+      "pool": "table4/vl16",
+      "figure": "Table 4",
+      "binary": "experiments/end2end/bin/vl16/spm_flash_attn",
+      "args": "2048 32 8 64 1 64 384 0 noncausal",
+      "env": "",
+      "gem5_extra": ""
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "experiment": "software_alternatives",
+  "config": "canonical",
+  "source_of_truth": "Fixed Figure 8 configurations at VL=16 with one SPM load issue slot and one SPM store issue slot.",
+  "cells": [
+    {
+      "name": "w3_cacheopt_kc64_mc16",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_l1swpf_none",
+      "args": "256 2048 2048 64 16",
+      "spm": 0,
+      "env": ""
+    },
+    {
+      "name": "w3_pfoff_kc64_mc16",
+      "runner": "experiments/software_alternatives/twosize_ladder/run_cell_hwpfoff_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_l1swpf_none",
+      "args": "256 2048 2048 64 16",
+      "spm": 0,
+      "env": ""
+    },
+    {
+      "name": "w3_pldl2keep_kc64_mc16",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_l2pf_only_b512",
+      "args": "256 2048 2048 64 16",
+      "spm": 0,
+      "env": "CF_NT_BYPASS=1"
+    },
+    {
+      "name": "w3_nt_kc128_mc16",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_l2pin_nt_pf0",
+      "args": "256 2048 2048 128 16",
+      "spm": 0,
+      "env": "CF_NT_BYPASS=1 CF_NT_CLEANRESP=1 CF_L2_PIN_KEEP=1"
+    },
+    {
+      "name": "w3_shbw_kc256_mc32",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_spm_n0outer_VL_16",
+      "args": "256 2048 2048 256 32",
+      "spm": 1,
+      "env": "CF_SPM_SHARED_BW=1 CF_SPM_HDR_CHARGE=1"
+    },
+    {
+      "name": "w3_cacheflex_kc256_mc32",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_spm_n0outer_VL_16",
+      "args": "256 2048 2048 256 32",
+      "spm": 1,
+      "env": ""
+    },
+    {
+      "name": "g2048_cacheopt_kc512_mc16",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_l1swpf_none",
+      "args": "2048 2048 2048 512 16",
+      "spm": 0,
+      "env": ""
+    },
+    {
+      "name": "g2048_pfoff_kc512_mc16",
+      "runner": "experiments/software_alternatives/twosize_ladder/run_cell_hwpfoff_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_l1swpf_none",
+      "args": "2048 2048 2048 512 16",
+      "spm": 0,
+      "env": ""
+    },
+    {
+      "name": "g2048_pldl2keep_kc512_mc16",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_l2pf_only_b512",
+      "args": "2048 2048 2048 512 16",
+      "spm": 0,
+      "env": "CF_NT_BYPASS=1"
+    },
+    {
+      "name": "g2048_nt_kc512_mc16",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_l2pin_nt_pf0",
+      "args": "2048 2048 2048 512 16",
+      "spm": 0,
+      "env": "CF_NT_BYPASS=1 CF_NT_CLEANRESP=1 CF_L2_PIN_KEEP=1"
+    },
+    {
+      "name": "g2048_shbw_kc256_mc64",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_spm_n0outer_VL_16",
+      "args": "2048 2048 2048 256 64",
+      "spm": 1,
+      "env": "CF_SPM_SHARED_BW=1 CF_SPM_HDR_CHARGE=1"
+    },
+    {
+      "name": "g2048_cacheflex_kc256_mc64",
+      "runner": "experiments/software_alternatives/runners/run_cell_headh0.sh",
+      "binary": "kernels/gemm/software_alternatives/bin/v3_spm_n0outer_VL_16",
+      "args": "2048 2048 2048 256 64",
+      "spm": 1,
+      "env": ""
+    }
+  ]
+}
