@@ -378,10 +378,8 @@ def render(configs, out_base):
     d = 0.008
     kw = dict(transform=ax_top.transAxes, color='k', clip_on=False, linewidth=1.0)
     ax_top.plot((-d, +d), (-d*3, +d*3), **kw)
-    ax_top.plot((1-d, 1+d), (-d*3, +d*3), **kw)
     kw.update(transform=ax_bot.transAxes)
     ax_bot.plot((-d, +d), (1-d, 1+d), **kw)
-    ax_bot.plot((1-d, 1+d), (1-d, 1+d), **kw)
     for ax in [ax_top, ax_bot]:
         ax.set_axisbelow(True)
         ax.grid(True, which='major', color='#B0B0B0', alpha=0.28,
@@ -392,16 +390,16 @@ def render(configs, out_base):
             if label.startswith('Theoretical'):
                 tgt = ax_top if v > 650 else ax_bot
                 tgt.text(x_groups[i] + offset, v + (3 if v > 660 else 5),
-                         f'{v:.0f}', ha='center', va='bottom', fontsize=10,
+                         f'{v:.0f}', ha='center', va='bottom', fontsize=13.5,
                          color='#555555', fontstyle='italic')
             else:
                 ax_bot.text(x_groups[i] + offset, min(v, 640) + 8,
                             f'{v/peaks[i]*100:.0f}%', ha='center', va='bottom',
-                            fontsize=10, fontweight='bold', color=color, rotation=90)
+                            fontsize=13.5, fontweight='bold', color=color, rotation=90)
     ax_bot.set_xticks(x_groups); ax_bot.set_xticklabels(vl_labels)
     ax_bot.set_xlabel('SIMD Width', fontweight='bold', labelpad=3.5)
     ax_top.set_xticks(x_groups); ax_top.set_xticklabels([])
-    fig.text(0.0142, 0.554, 'GFLOPS', ha='center', va='center',
+    fig.text(0.0150, 0.554, 'GFLOPS', ha='center', va='center',
              rotation='vertical', fontsize=15, fontweight='bold',
              color='#000000')
     h, l = ax_bot.get_legend_handles_labels()

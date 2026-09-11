@@ -26,7 +26,12 @@ plt.rcParams.update({
     'font.sans-serif': ['DejaVu Sans'],
     'text.usetex': False,
     'font.size': 7,
+    'figure.dpi': 300,
     'axes.linewidth': 0.6,
+    'axes.edgecolor': '#555555',
+    'xtick.color': '#333333',
+    'ytick.color': '#333333',
+    'text.color': '#333333',
     'pdf.fonttype': 42,
     'ps.fonttype': 42,
     'savefig.bbox': None,
@@ -526,10 +531,10 @@ def build_live():
 def _style(ax, ys, ylabels, R, xlim, xlabel=None):
     ax.axvline(1.0, color='black', linestyle='--', linewidth=0.6, alpha=0.7, zorder=2)
     ax.grid(axis='x', linestyle='--', alpha=0.3); ax.set_axisbelow(True)
-    ax.set_xlim(*xlim); ax.set_ylim(-0.5, len(ROW_ORDER) - 0.5)
+    ax.set_xticks(np.arange(0.0, xlim[1], 0.2)); ax.set_xlim(*xlim); ax.set_ylim(-0.5, len(ROW_ORDER) - 0.5)
     ax.spines[['top', 'right']].set_visible(False)
-    ax.tick_params(length=0, labelsize=6.5)
-    ax.set_yticks(ys); ax.set_yticklabels(ylabels, fontsize=6.5)
+    ax.tick_params(length=0, labelsize=7.0)
+    ax.set_yticks(ys); ax.set_yticklabels(ylabels, fontsize=7.0)
     for tick, rn in zip(ax.get_yticklabels(), ROW_ORDER):
         if rn in R and R[rn]['is_cf']:
             tick.set_fontweight('bold')
@@ -540,6 +545,12 @@ def _style(ax, ys, ylabels, R, xlim, xlabel=None):
 def _missing_row(ax, y):
     ax.text(0.02, y, 'missing', va='center', fontsize=6.0,
             color='#888888', style='italic', zorder=4)
+
+
+def _format_energy_change(percent):
+    """Avoid rendering a small negative change as the misleading ``-0%``."""
+    label = f'{percent:+.0f}%'
+    return '0%' if label == '-0%' else label
 
 
 def draw_runtime(ax, R, title, ys, ylabels, xlabel=None):
@@ -561,7 +572,7 @@ def draw_runtime(ax, R, title, ys, ylabels, xlabel=None):
                     edgecolor='black', linewidth=0.7, zorder=3)
             left += w
         ax.text(total_n + 0.03, y, f'{base / r["total_us"]:.2f}$\\times$',
-                va='center', fontsize=6.3, fontweight='bold',
+                va='center', fontsize=7.0, fontweight='bold',
                 color=C_GAIN, zorder=4)
     _style(ax, ys, ylabels, R, (0, 1.62), xlabel)
     ax.set_title(title, fontsize=7.2, fontweight='bold', pad=3)
@@ -590,8 +601,8 @@ def draw_energy(ax, R, title, ys, ylabels, xlabel=None):
             ax.barh(y, 1.0 - tot_n, left=tot_n, color='white', height=0.66,
                     edgecolor='black', linewidth=0.7, hatch='...', zorder=3)
         ered = (r['total_mJ'] - base) / base * 100
-        ax.text(max(tot_n, 1.0) + 0.03, y, f'{ered:+.0f}%',
-                va='center', fontsize=6.3, fontweight='bold', color=C_GAIN, zorder=4)
+        ax.text(max(tot_n, 1.0) + 0.03, y, _format_energy_change(ered),
+                va='center', fontsize=7.0, fontweight='bold', color=C_GAIN, zorder=4)
     _style(ax, ys, ylabels, R, (0, 1.34), xlabel)
     ax.set_title(title, fontsize=7.2, fontweight='bold', pad=3)
 
@@ -676,7 +687,7 @@ def main():
     ylabels = [ROW_LABELS[r] for r in ROW_ORDER]
 
     # The working canvas leaves enough room for the fixed output box.
-    fig = plt.figure(figsize=(3.45, 6.1472))
+    fig = plt.figure(figsize=(3.28, 6.1472))
     _gs   = fig.add_gridspec(2, 1, hspace=0.45)   # gap between runtime & energy groups
     _gtop = _gs[0].subgridspec(2, 1, hspace=0.45)  # (a),(b) runtime
     _gbot = _gs[1].subgridspec(2, 1, hspace=0.45)  # (c),(d) energy
@@ -701,14 +712,14 @@ def main():
         Patch(fc=C_STAGE, ec='black', linewidth=0.7, label='data staging (pack)'),
         Patch(fc=C_COMPUTE, ec='black', linewidth=0.7, label='compute'),
     ], loc='lower left', bbox_to_anchor=(0.0, 1.18), ncol=2, frameon=False,
-       fontsize=6.2, handlelength=1.0, handletextpad=0.4, columnspacing=1.0)
+       fontsize=7.0, handlelength=1.0, handletextpad=0.4, columnspacing=1.0)
     axes[2].legend(handles=[
         Patch(fc=C_CACHE, ec='black', linewidth=0.7, label='Cache'),
         Patch(fc=C_SPM, ec='black', linewidth=0.7, label='SPM'),
         Patch(fc=C_DRAM, ec='black', linewidth=0.7, label='DRAM'),
         Patch(fc='white', ec='black', linewidth=0.7, hatch='...', label='Reduced'),
     ], loc='lower left', bbox_to_anchor=(0.0, 1.18), ncol=4, frameon=False,
-       fontsize=6.2, handlelength=1.0, handletextpad=0.3, columnspacing=0.7)
+       fontsize=7.0, handlelength=1.0, handletextpad=0.3, columnspacing=0.7)
 
     base = os.path.join(OUT, 'fig8')
     # Avoid a version-dependent MediaBox from bbox_inches="tight".

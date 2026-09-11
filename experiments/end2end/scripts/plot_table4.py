@@ -448,9 +448,10 @@ def to_latex(data: dict[str, object]) -> str:
     ]
     for sequence_length in SEQUENCE_LENGTHS:
         first = by_key[(4, sequence_length)]
+        kv_l2_pct = f"{float(first['kv_l2_pct']):.1f}".rstrip("0").rstrip(".")
         lines.append(
             f"{sequence_length} & {format_kv(int(first['kv_bytes']))} & "
-            f"{float(first['kv_l2_pct']):.0f}\\% & "
+            f"{kv_l2_pct}\\% & "
             f"{latex_gain(first)} & {latex_gain(by_key[(16, sequence_length)])} \\\\"
         )
     lines += ["\\bottomrule", "\\end{tabular}", ""]
@@ -465,9 +466,10 @@ def to_markdown(data: dict[str, object]) -> str:
     ]
     for sequence_length in SEQUENCE_LENGTHS:
         first = by_key[(4, sequence_length)]
+        kv_l2_pct = f"{float(first['kv_l2_pct']):.1f}".rstrip("0").rstrip(".")
         lines.append(
             f"| {sequence_length} | {int(first['kv_bytes']) // 1024} KB | "
-            f"{float(first['kv_l2_pct']):.0f}% | {markdown_gain(first)} | "
+            f"{kv_l2_pct}% | {markdown_gain(first)} | "
             f"{markdown_gain(by_key[(16, sequence_length)])} |"
         )
     return "\n".join(lines) + "\n"

@@ -31,7 +31,8 @@ bash run_all.sh -j 8
 - `spm_tools/`: CacheFlex instruction encoding support
 - `kernels/`: benchmark sources
 - `experiments/`: experiment configurations, measurements, and plotters
-- `reproduce.sh`: generates all reported figures and Table 4
+- [figures/](figures/README.md): diagram sources and an index of figure-generation scripts
+- `reproduce.sh`: generates Figures 2, 7, 8, and 9 and Table 4
 
 ## License
 

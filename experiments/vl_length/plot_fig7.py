@@ -414,7 +414,7 @@ def render(DATA, out_base):
         for i in range(len(x)):
             ax_perf.text(x[i], max(all_bl[i], all_cf[i]) + 1.5,
                          f'{all_spd[i]:.2f}x', ha='center', va='bottom',
-                         fontsize=6.5, fontweight='bold', color=C_GAIN)
+                         fontsize=7.4, fontweight='bold', color=C_GAIN)
         sep_x = (x[n-1] + x[-1]) / 2
         ax_perf.axvline(x=sep_x, color='gray', linestyle=':', alpha=0.5, linewidth=0.8)
         if column == 0:
@@ -465,12 +465,12 @@ def render(DATA, out_base):
             rh = gap_h[i]; mid = cf_cs[i] + rh / 2
             if rh > 0.10:
                 ax_energy.text(x[i] + w/2, mid, f'{all_e_red[i]:.0f}%', ha='center',
-                               va='center', fontsize=6.5, fontweight='bold', rotation=90,
+                               va='center', fontsize=7.4, fontweight='bold', rotation=90,
                                bbox=dict(boxstyle='round,pad=0.1', facecolor='white',
                                          edgecolor='none', alpha=0.8))
             elif rh > 0.04:
                 ax_energy.text(x[i] + w/2, mid, f'{all_e_red[i]:.0f}%', ha='center',
-                               va='center', fontsize=5.5, fontweight='bold',
+                               va='center', fontsize=7, fontweight='bold',
                                bbox=dict(boxstyle='round,pad=0.05', facecolor='white',
                                          edgecolor='none', alpha=0.8))
         ax_energy.axvline(x=sep_x, color='gray', linestyle=':', alpha=0.5, linewidth=0.8)
@@ -501,10 +501,10 @@ def render(DATA, out_base):
                   hatch='///', label='Reduced'),
         ],
         loc='upper center', bbox_to_anchor=(0.459, 1.006), ncol=6,
-        frameon=False, fontsize=8, handlelength=1.5, handletextpad=0.4,
-        columnspacing=1.4
+        frameon=False, fontsize=9.5, handlelength=1.5, handletextpad=0.4,
+        columnspacing=1.0
     )
-    fig.text(0.7142, 0.971, 'speedup', color=C_GAIN, fontsize=8,
+    fig.text(0.740, 0.971, 'speedup', color=C_GAIN, fontsize=9.5,
              fontweight='bold', ha='left', va='center')
     fig.subplots_adjust(left=0.050, right=0.997, top=0.856, bottom=0.051,
                         wspace=0.20, hspace=0.18)

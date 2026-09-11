@@ -36,7 +36,7 @@ C_REDUCTION = "#1769AA"
 
 CANVAS_WIDTH_BP = 850.0
 CANVAS_HEIGHT_BP = 440.0
-MIN_SOURCE_FONT_PT = 13.2
+MIN_SOURCE_FONT_PT = 12.2
 BAR_X = np.array((0.0, 1.0, 2.25, 3.25))
 
 
@@ -152,7 +152,7 @@ def style_axis(axis) -> None:
         length=2.6,
         pad=2.0,
     )
-    axis.tick_params(axis="x", width=0.0, length=0.0, pad=3.0)
+    axis.tick_params(axis="x", width=0.0, length=0.0, pad=2.5)
     axis.yaxis.set_major_locator(MaxNLocator(nbins=3, min_n_ticks=3))
     axis.yaxis.set_major_formatter(
         FuncFormatter(
@@ -306,12 +306,12 @@ def render(input_path: Path, output_dir: Path) -> None:
         bottom=0.064,
         top=0.859,
         hspace=0.20,
-        wspace=0.38,
+        wspace=0.35,
     )
     axes = np.empty((4, 4), dtype=object)
     for model_index in range(2):
         for column in range(4):
-            pair = outer[model_index, column].subgridspec(2, 1, hspace=0.08)
+            pair = outer[model_index, column].subgridspec(2, 1, hspace=0.16)
             axes[2 * model_index, column] = figure.add_subplot(pair[0, 0])
             axes[2 * model_index + 1, column] = figure.add_subplot(pair[1, 0])
 
@@ -329,15 +329,15 @@ def render(input_path: Path, output_dir: Path) -> None:
             draw_energy(axes[energy_row, column], record)
             if column == 0:
                 axes[time_row, column].set_ylabel(
-                    "Time (ms)", fontsize=14.2, fontweight="bold", labelpad=3.0
+                    "Time (ms)", fontsize=12.4, fontweight="bold", labelpad=2.5
                 )
                 axes[energy_row, column].set_ylabel(
-                    "Energy (mJ)", fontsize=14.2, fontweight="bold", labelpad=3.0
+                    "Energy (mJ)", fontsize=12.4, fontweight="bold", labelpad=2.5
                 )
             if time_row == 0:
                 axes[time_row, column].set_title(
                     f"T={sequence_length}  ·  VL={vl}",
-                    fontsize=15.2,
+                    fontsize=13.8,
                     fontweight="bold",
                     pad=4.0,
                 )
@@ -348,7 +348,7 @@ def render(input_path: Path, output_dir: Path) -> None:
             0.008,
             group_box.y1 + 0.006,
             label,
-            fontsize=14.8,
+            fontsize=13.5,
             fontweight="bold",
             ha="left",
             va="bottom",
@@ -358,7 +358,7 @@ def render(input_path: Path, output_dir: Path) -> None:
         0.539,
         0.014,
         "Configuration order (left→right):  BL  ·  CF   |   BL+FA  ·  CF+FA",
-        fontsize=13.0,
+        fontsize=11.8,
         ha="center",
         va="bottom",
         color="#303030",
@@ -404,7 +404,7 @@ def render(input_path: Path, output_dir: Path) -> None:
         bbox_to_anchor=(0.50, 0.995),
         ncol=9,
         frameon=False,
-        fontsize=13.0,
+        fontsize=12.1,
         handlelength=1.10,
         handletextpad=0.30,
         columnspacing=0.68,
