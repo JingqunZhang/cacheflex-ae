@@ -31,8 +31,11 @@ bash run_all.sh -j 8
 - `spm_tools/`: CacheFlex instruction encoding support
 - `kernels/`: benchmark sources
 - `experiments/`: experiment configurations, measurements, and plotters
-- [figures/](figures/README.md): diagram sources and an index of figure-generation scripts
+- [figures/](figures/README.md): index of result-figure scripts
 - `reproduce.sh`: generates Figures 2, 7, 8, and 9 and Table 4
+
+Architecture-diagram sources are maintained in the
+[paper repository](https://github.com/JingqunZhang/CacheFlex-Direct-Software-Managed-Access-to-Higher-Level-Cache-for-Scalable-Vector-Support-2-/tree/main/figures).
 
 ## License
 

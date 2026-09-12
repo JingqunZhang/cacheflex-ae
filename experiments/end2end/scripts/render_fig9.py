@@ -35,9 +35,10 @@ C_SPEEDUP = "#B83E46"
 C_REDUCTION = "#1769AA"
 
 CANVAS_WIDTH_BP = 850.0
-CANVAS_HEIGHT_BP = 440.0
+CANVAS_HEIGHT_BP = 424.0
 MIN_SOURCE_FONT_PT = 12.2
-BAR_X = np.array((0.0, 1.0, 2.25, 3.25))
+BAR_X = np.arange(len(CONFIGS), dtype=float)
+METRIC_LABEL_X = BAR_X
 
 
 def parse_args() -> argparse.Namespace:
@@ -161,7 +162,7 @@ def style_axis(axis) -> None:
             )
         )
     )
-    axis.set_xlim(-0.55, 3.80)
+    axis.set_xlim(-0.50, 3.50)
 
 
 def add_metric_label(axis, x, text, color) -> None:
@@ -182,9 +183,18 @@ def add_metric_label(axis, x, text, color) -> None:
     )
 
 
-def configure_x_axis(axis) -> None:
+def configure_x_axis(axis, show_labels: bool = False) -> None:
     axis.set_xticks(BAR_X)
-    axis.set_xticklabels([])
+    if show_labels:
+        axis.set_xticklabels(
+            CONFIGS,
+            fontsize=MIN_SOURCE_FONT_PT,
+            fontfamily="DejaVu Sans",
+            fontstretch="condensed",
+            color="#303030",
+        )
+    else:
+        axis.set_xticklabels([])
 
 
 def draw_time(axis, record: dict) -> None:
@@ -214,22 +224,25 @@ def draw_time(axis, record: dict) -> None:
     band_floor = axis.get_ylim()[1] * 0.82
     axis.axhspan(band_floor, axis.get_ylim()[1], color="#FAFAFA", zorder=0)
     axis.axhline(band_floor, color="#D9D9D9", linewidth=0.45, zorder=1)
-    axis.axvline(1.625, color="#D9D9D9", linewidth=0.5, zorder=1)
+    axis.axvline(1.5, color="#D9D9D9", linewidth=0.5, zorder=1)
     for index, config in enumerate(CONFIGS[1:], start=1):
         add_metric_label(
             axis,
-            x[index],
-            f"{configurations[config]['speedup_vs_BL']:.2f}",
+            METRIC_LABEL_X[index],
+            signed_percentage_text(
+                (configurations[config]["speedup_vs_BL"] - 1.0) * 100.0
+            ),
             C_SPEEDUP,
         )
     configure_x_axis(axis)
     style_axis(axis)
 
 
-def energy_reduction_text(value: float) -> str:
-    if abs(value) < 0.05:
-        return "0.0"
-    return f"{'−' if value < 0 else ''}{abs(value):.1f}"
+def signed_percentage_text(value: float) -> str:
+    rounded = round(value)
+    if rounded == 0:
+        return "0%"
+    return f"{'−' if rounded < 0 else '+'}{abs(rounded)}%"
 
 
 def draw_energy(axis, record: dict) -> None:
@@ -259,13 +272,13 @@ def draw_energy(axis, record: dict) -> None:
     band_floor = axis.get_ylim()[1] * 0.82
     axis.axhspan(band_floor, axis.get_ylim()[1], color="#FAFAFA", zorder=0)
     axis.axhline(band_floor, color="#D9D9D9", linewidth=0.45, zorder=1)
-    axis.axvline(1.625, color="#D9D9D9", linewidth=0.5, zorder=1)
+    axis.axvline(1.5, color="#D9D9D9", linewidth=0.5, zorder=1)
     for index, config in enumerate(CONFIGS[1:], start=1):
         add_metric_label(
             axis,
-            x[index],
-            energy_reduction_text(
-                configurations[config]["energy_reduction_vs_BL_pct"]
+            METRIC_LABEL_X[index],
+            signed_percentage_text(
+                -configurations[config]["energy_reduction_vs_BL_pct"]
             ),
             C_REDUCTION,
         )
@@ -303,10 +316,10 @@ def render(input_path: Path, output_dir: Path) -> None:
         4,
         left=0.086,
         right=0.992,
-        bottom=0.064,
+        bottom=0.046,
         top=0.859,
         hspace=0.20,
-        wspace=0.35,
+        wspace=0.18,
     )
     axes = np.empty((4, 4), dtype=object)
     for model_index in range(2):
@@ -327,6 +340,9 @@ def render(input_path: Path, output_dir: Path) -> None:
             record = records[(model, sequence_length, vl)]
             draw_time(axes[time_row, column], record)
             draw_energy(axes[energy_row, column], record)
+            # Each model/configuration panel shares labels across its time and
+            # energy axes, with one horizontal label directly below each bar.
+            configure_x_axis(axes[energy_row, column], show_labels=True)
             if column == 0:
                 axes[time_row, column].set_ylabel(
                     "Time (ms)", fontsize=12.4, fontweight="bold", labelpad=2.5
@@ -353,16 +369,6 @@ def render(input_path: Path, output_dir: Path) -> None:
             ha="left",
             va="bottom",
         )
-
-    figure.text(
-        0.539,
-        0.014,
-        "Configuration order (left→right):  BL  ·  CF   |   BL+FA  ·  CF+FA",
-        fontsize=11.8,
-        ha="center",
-        va="bottom",
-        color="#303030",
-    )
 
     time_legend_handles = [
         Patch(
@@ -411,6 +417,20 @@ def render(input_path: Path, output_dir: Path) -> None:
     )
     legend.get_texts()[0].set_fontweight("bold")
     legend.get_texts()[5].set_fontweight("bold")
+
+    for x, label, color in (
+        (0.32, "Performance gain vs. BL (%)", C_SPEEDUP),
+        (0.72, "Energy change vs. BL (%)", C_REDUCTION),
+    ):
+        figure.text(
+            x,
+            0.921,
+            label,
+            fontsize=MIN_SOURCE_FONT_PT,
+            ha="center",
+            va="center",
+            color=color,
+        )
 
     pdf_path = output_dir / "fig9.pdf"
     png_path = output_dir / "fig9.png"
